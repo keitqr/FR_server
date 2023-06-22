@@ -44,8 +44,8 @@ app.put("/image",(req,res) => {handleImage(req,res,db)});
 app.post("/imageurl",(req,res) => {handleApiCall(req,res)});
    
 
-app.listen(3000, ()=> { // the second parameter which is a function within this function, it will run right after the 'listen' happens on port 3000.
-    console.log('App is running on port 3000')
+app.listen(process.env.PORT || 3000, ()=> { // the second parameter which is a function within this function, it will run right after the 'listen' happens on port 3000.
+    console.log(`App is running on port ${process.env.PORT}`)
 })
 
 // So now that we have this set up I like planning our API.
