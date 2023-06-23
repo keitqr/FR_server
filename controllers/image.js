@@ -1,6 +1,5 @@
-
-
 //Communicating with Clarifai API: PAT. USER_ID given in their documentantion, and website.
+
 const returnClarifaiRequestOptions = (imageUrl) => {
     const PAT = '4b3e491c65e64af4bcd78a4c6656bb52';
     const USER_ID = 'keittaki';       
@@ -38,17 +37,16 @@ const returnClarifaiRequestOptions = (imageUrl) => {
 
 }
 
-const handleApiCall = (req,res) => {
+const handleApiCall = (req, res) => {
     fetch(
-        "https://api.clarifai.com/v2/models/" 
-        + 'face-detection' 
-        + "/outputs", 
-        returnClarifaiRequestOptions(req.body.input))
-        .then(data => {
-            res.json(data);
-        })
-        .catch(err => res.status(400).json('unable to work with api'))
-    }
+      "https://api.clarifai.com/v2/models/face-detection/outputs",
+      returnClarifaiRequestOptions(req.body.input)
+    )
+      .then(response => response.json())
+      .then(data => res.json(data))
+      .catch(err => res.status(400).json('API call failed'));
+  }
+  
 
 
 const handleImage = (req, res, db) => {  // a new user is gonna be created here

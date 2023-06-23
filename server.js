@@ -10,6 +10,7 @@ import handleSignin from "./controllers/signin.js";
 import handleProfileGet from "./controllers/profile.js";
 import {handleImage, handleApiCall} from "./controllers/image.js";
 
+
 const db = knex({  //connecting to our PostgreSql database
     client: 'pg',
     connection: {
@@ -31,7 +32,7 @@ app.use(express.json());
 app.use(cors());
 
 
-app.get("/",(req, res) =>{res.send ('It is working');});
+app.get("/",(req, res) =>{res.send ('Success');});
 
 app.post("/signin", handleSignin(db,bcrypt));
 
@@ -44,8 +45,8 @@ app.put("/image",(req,res) => {handleImage(req,res,db)});
 app.post("/imageurl",(req,res) => {handleApiCall(req,res)});
    
 
-app.listen(process.env.PORT || 3000, ()=> { // the second parameter which is a function within this function, it will run right after the 'listen' happens on port 3000.
-    console.log(`App is running on port ${process.env.PORT}`)
+app.listen(3000, ()=> { // the second parameter which is a function within this function, it will run right after the 'listen' happens on port 3000.
+    console.log('App is running on port 3000')
 })
 
 // So now that we have this set up I like planning our API.
