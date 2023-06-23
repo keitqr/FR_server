@@ -11,6 +11,16 @@ import handleProfileGet from "./controllers/profile.js";
 import {handleImage, handleApiCall} from "./controllers/image.js";
 
 
+// const db = knex({  //connecting to our PostgreSql database
+//     client: 'pg',
+//     connection: {
+//         host: '127.0.0.1',
+//         user: 'postgres',
+//         password: 'Keitfysiko2020!',
+//         database: 'smart-brain'
+//     }
+// });
+
 const db = knex({  //connecting to our PostgreSql database
     client: 'pg',
     connection: {
@@ -36,7 +46,7 @@ app.use(express.json());
 app.use(cors());
 
 
-app.get("/",(req, res) =>{res.send ('Its working !!!!');});
+app.get("/",(req, res) =>{res.send ('Its working!!!!');});
 
 app.post("/signin", handleSignin(db,bcrypt));
 

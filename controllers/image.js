@@ -1,4 +1,5 @@
 //Communicating with Clarifai API: PAT. USER_ID given in their documentantion, and website.
+import fetch from "node-fetch";
 
 const returnClarifaiRequestOptions = (imageUrl) => {
     const PAT = '4b3e491c65e64af4bcd78a4c6656bb52';
